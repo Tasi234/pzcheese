@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Webstore</title>
+    <title>PZ Cheeseria</title>
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <img src="pzlogo.jpg" alt="Company Logo">
+            <img src="pzlogo.jpg" alt="PZ Logo">
         </div>
         <div class="company-name">
             <h1>Patient Zero Cheeseria</h1>
@@ -17,6 +17,7 @@
 
     <div class="container">
         <div class="product" *ngFor="let cheese of cheeseList">
+          <!-- call the cheeseList and fill data -->
             <div class="product-image">
                 <img src="{{ cheese.image }}" alt="Product Image">
             </div>
@@ -24,9 +25,24 @@
                 <p><strong>Product ID:</strong> {{ cheese.id }}</p>
                 <p><strong>Name:</strong> {{ cheese.name }}</p>
                 <p><strong>Color:</strong> {{ cheese.colour }}</p>
-                <p><strong>Price:</strong> {{ cheese.price }}</p>
+                <p><strong>Price/kg:</strong> {{ cheese.price }}</p>
+                <p><strong>Add to Cart Qty:</strong> 
+                  <input type="number" formControlName="qtyReq" placeholder=1 (blur)="qtyCalc()"></p> 
+                <p><strong>Subtotal:</strong>
+                  <input type="number" formControlName="qtySub" placeholder=0 ><!-- [(ngModel)]="math" --></p> 
+
             </div>
         </div>
     </div>
+<!--      Non-functional calculator
+<div>
+       <form [formGroup]="qtyCalcForm">
+      <p><strong>Add to Cart Qty:</strong> 
+        <input type="number" id="qtyReq" formControlName="qtyReq" placeholder=1 (blur)="qtyCalc()">
+                </p>
+              </form></div> -->
+
+
+
 </body>
 </html>
